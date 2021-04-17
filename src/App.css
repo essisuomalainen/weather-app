@@ -1,38 +1,110 @@
-.App {
+.app {
   text-align: center;
+
+  background-color: darkslategrey;
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app.sunny {
+  background-color: gold;
+  width: 100vw;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
+  width: 100vw;
+  height: 100vh;
+  padding: 2.5rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.search {
+  width: 20rem;
+  height: 5rem;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 3rem 10rem 3rem;
+  grid-template-rows: 3rem 11rem 12rem;
+  width: 16rem;
+  height: 26rem;
+  background: #e5c852;
+  padding: 9px;
+  border-radius: 0.5rem;
+  flex-direction: row;
+}
+
+.dateAndTime {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.time,
+.date {
+  width: auto;
+  height: 50%;
+  font-size: 1.2rem;
+}
+
+.time {
+  color: #7a650a;
+}
+
+.date {
   color: white;
+  text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+.weather {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: invert(100%);
+  background-size: cover;
+  max-width: 10rem;
+}
+.api-wrapper {
+  grid-row-start: 3;
+  grid-row-end: 3;
+  width: 100%;
+  grid-template-columns: 3rem 10rem 3rem;
+  display: grid;
+  grid-template-rows: 3rem 3rem 3rem 4rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.degrees {
+  grid-row-start: 1;
+  grid-column-start: 2;
+  font-size: 2rem;
+  color: #7a650a;
+}
+
+.description {
+  text-transform: uppercase;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  font-size: 1.2rem;
+  color: #7a650a;
+}
+
+.location {
+  grid-row-start: 4;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  color: white;
+  align-items: center;
 }

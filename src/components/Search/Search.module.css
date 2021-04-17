@@ -1,0 +1,21 @@
+.container {
+  width: 20vw;
+  height: 5vh;
+}
+
+.searchbar {
+  border: none;
+  appearance: none;
+  background: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: block;
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.searchbar:focus {
+  background-color: rgba(255, 255, 255, 0.75);
+}
