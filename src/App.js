@@ -80,7 +80,7 @@ function App() {
             } else {
               setDate(convertTime('1618758297', '10800'));
               setBackground(chooseImage(weather.icon));
-              return setWeather(defaultLocation);
+              setWeather(defaultLocation);
             }
           })
       );
