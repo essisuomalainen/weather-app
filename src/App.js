@@ -80,6 +80,7 @@ function App() {
   return (
     <div className='app'>
       <div className='main'>
+        <h1>Get the weather for..</h1>
         <div className='search'>
           <input
             type='text'

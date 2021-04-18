@@ -17,11 +17,38 @@
   height: 100vh;
   padding: 2.5rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  color: white;
 }
 
 .search {
-  width: 20rem;
+  width: 18rem;
   height: 5rem;
+}
+.container {
+  width: 20vw;
+  height: 5vh;
+}
+
+.searchbar {
+  border: none;
+  appearance: none;
+  background: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: block;
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.searchbar:focus {
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 .card {
