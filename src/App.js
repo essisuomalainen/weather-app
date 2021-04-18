@@ -137,7 +137,7 @@ function App() {
             <div className='api-wrapper'>
               <div className='degrees'>{Math.round(weather.main.temp)}°c</div>
               <div className='description'>{weather.weather[0].main}</div>
-
+              <div className='line'> </div>
               <div className='location'>
                 <span className='city'>{weather.name}</span>
                 <span className='country'>{weather.sys.country}</span>
