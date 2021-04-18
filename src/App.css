@@ -1,9 +1,9 @@
 .app {
   text-align: center;
-
-  background-color: darkslategrey;
+  background-color: #31353e;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .app.sunny {
@@ -15,7 +15,7 @@
 .main {
   width: 100vw;
   height: 100vh;
-  padding: 2.5rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,12 +57,23 @@ h1 {
   grid-template-rows: 3rem 11rem 12rem;
   width: 16rem;
   height: 26rem;
-  background: #e5c852;
+  background-color: rgba(255, 255, 255, 0.75);
+
+  background-position: center;
+  background-repeat: no-repeat;
+
   padding: 9px;
   border-radius: 0.5rem;
   flex-direction: row;
 }
 
+.card.sunny {
+  background: #e5c852;
+}
+
+.card.rain {
+  background: #2a99b7;
+}
 .dateAndTime {
   grid-column-start: 1;
   grid-column-end: 4;
@@ -82,7 +93,7 @@ h1 {
 }
 
 .time {
-  color: #7a650a;
+  color: #31353e;
 }
 
 .date {
@@ -105,14 +116,14 @@ h1 {
   width: 100%;
   grid-template-columns: 3rem 10rem 3rem;
   display: grid;
-  grid-template-rows: 3rem 3rem 3rem 4rem;
+  grid-template-rows: 3rem 3rem 3rem 3rem;
 }
 
 .degrees {
   grid-row-start: 1;
   grid-column-start: 2;
   font-size: 2rem;
-  color: #7a650a;
+  color: #31353e;
 }
 
 .description {
@@ -120,7 +131,7 @@ h1 {
   grid-column-start: 2;
   grid-row-start: 2;
   font-size: 1.2rem;
-  color: #7a650a;
+  color: #31353e;
 }
 
 .location {
@@ -134,4 +145,5 @@ h1 {
   font-size: 1.3rem;
   color: white;
   align-items: center;
+  text-transform: uppercase;
 }

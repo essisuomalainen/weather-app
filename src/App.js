@@ -1,7 +1,5 @@
 import './App.css';
 import React, { useState } from 'react';
-import Search from './components/Search/Search.js';
-import DateAndTime from './components/DateAndTime/DateAndTime.js';
 import sun from './assets/sun.svg';
 import rain from './assets/rain.svg';
 import clouds from './assets/cloudy.svg';
@@ -17,6 +15,29 @@ function App() {
   const [date, setDate] = useState({ fullDate: '', time: '' });
   const [background, setBackground] = useState('');
 
+  const defaultLocation = {
+    weather: [
+      {
+        id: 800,
+        main: 'City not found',
+        description: 'clear sky',
+        icon: '01d',
+      },
+    ],
+    base: 'stations',
+    main: {
+      temp: '',
+    },
+    dt: 1618758297,
+    sys: {
+      country: '',
+    },
+    timezone: 10800,
+
+    name: '',
+  };
+
+  // Getting time for the chosen location
   const convertTime = (localSeconds, timezone) => {
     let sec = localSeconds;
     let calcTimezone = timezone * 1000;
@@ -38,6 +59,7 @@ function App() {
       'nov',
       'dec',
     ];
+
     let month = months[date.getMonth()];
     let day = date.getDate();
     let fullDate = `${day} ${month}`;
@@ -49,10 +71,17 @@ function App() {
       fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`).then(
         (res) =>
           res.json().then((result) => {
-            setWeather(result);
             setQuery('');
-            setDate(convertTime(result.dt, result.timezone));
-            setBackground(chooseImage(result.weather[0].main));
+
+            if (result.weather) {
+              setDate(convertTime(result.dt, result.timezone));
+              setWeather(result);
+              setBackground(chooseImage(result.weather[0].main));
+            } else {
+              setDate(convertTime('1618758297', '10800'));
+              setBackground(chooseImage(weather.icon));
+              return setWeather(defaultLocation);
+            }
           })
       );
     }
@@ -62,16 +91,12 @@ function App() {
     switch (props) {
       case 'Clear':
         return sun;
-        break;
       case 'Rain':
         return rain;
-        break;
       case 'Clouds':
         return clouds;
-        break;
       case 'Snow':
         return snow;
-        break;
       default:
         return sun;
     }
@@ -81,6 +106,7 @@ function App() {
     <div className='app'>
       <div className='main'>
         <h1>Get the weather for..</h1>
+
         <div className='search'>
           <input
             type='text'
@@ -91,7 +117,16 @@ function App() {
             onKeyPress={search}
           ></input>
         </div>
-        <div className='card'>
+
+        <div
+          className={
+            typeof weather.main != 'undefined'
+              ? weather.weather[0].main === 'Clear'
+                ? 'card sunny'
+                : 'card rain'
+              : 'card'
+          }
+        >
           <div className='dateAndTime'>
             <div className='time'>{date.time.slice(0, 5)}</div>
             <div className='date'> {date.fullDate} </div>
